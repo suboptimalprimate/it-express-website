@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>IT Express</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
+    <header class="site-header">
+        <a href="index.html" class="logo">IT Express</a>
+        <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">&#9776;</button>
+        <nav id="nav-menu">
+            <ul class="nav-links">
+                <li class="home-link"><a href="index.html">Home</a></li>
                 <li><a href="booking.html">Booking</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -19,13 +20,21 @@
     </header>
 
     <main>
-        <section>
-            <h2>Welcome to IT Express</h2>
-            <p>Your one-stop solution for IT services.</p>
+        <section class="pricing">
+            <h2>Pricing</h2>
+            <ul>
+                <li>$40 diagnostic fee (discounted from labor)</li>
+                <li>$60 per hour for labor (minimum charge is 1 hour)</li>
+                <li>+ parts cost if needed</li>
+                <li>OS upgrade: license + labor</li>
+                <li>Custom build: price of parts + labor</li>
+            </ul>
+            <a class="btn" href="booking.html">Book Now</a>
         </section>
     </main>
 
     <footer>
+        <p id="copy-email" class="email">service@it-express.org</p>
         <p>&copy; 2024 IT Express</p>
     </footer>
 
