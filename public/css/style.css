@@ -5,6 +5,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header.site-header {
@@ -13,7 +16,7 @@ header.site-header {
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: relative;
 }
 
@@ -21,6 +24,9 @@ header.site-header {
     color: #fff;
     text-decoration: none;
     font-size: 1.75rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links {
@@ -54,6 +60,7 @@ header.site-header {
 
 main {
     padding: 1rem;
+    flex: 1;
 }
 
 .pricing {
@@ -96,6 +103,22 @@ footer {
 .email {
     cursor: pointer;
     text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+input,
+select,
+textarea,
+button {
+    font-size: 1rem;
+    padding: 0.5rem;
 }
 
 @media (max-width: 600px) {
