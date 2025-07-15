@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>IT Express</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
+    <header class="site-header">
+        <a href="index.html" class="logo">IT Express</a>
+        <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">&#9776;</button>
+        <nav id="nav-menu">
+            <ul class="nav-links">
+                <li class="home-link"><a href="index.html">Home</a></li>
                 <li><a href="booking.html">Booking</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -25,8 +26,8 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="booking-email">Email:</label>
+                <input type="email" id="booking-email" name="email" required>
 
                 <label for="date">Preferred Date:</label>
                 <input type="date" id="date" name="date" required>
@@ -37,6 +38,7 @@
     </main>
 
     <footer>
+        <p id="copy-email" class="email">service@it-express.org</p>
         <p>&copy; 2024 IT Express</p>
     </footer>
 
