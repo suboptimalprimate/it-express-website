@@ -22,14 +22,27 @@
     <main>
         <section>
             <h2>Contact Us</h2>
-            <p>Email: <a href="mailto:service@it-express.org">service@it-express.org</a></p>
-            <p>Phone: (555) 555-5555</p>
+            <form>
+                <label for="contact-name">Name:</label>
+                <input type="text" id="contact-name" name="name" required>
+
+                <label for="contact-phone">Phone:</label>
+                <input type="tel" id="contact-phone" name="phone" required>
+
+                <label for="contact-email">Email:</label>
+                <input type="email" id="contact-email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
         </section>
     </main>
 
     <footer>
-        <p id="copy-email" class="email">service@it-express.org</p>
-        <p>&copy; 2024 IT Express</p>
+        <p id="copy-email" class="email">service@it-express.org | (555) 123-4567</p>
+        <p>&copy; 2025 IT Express</p>
     </footer>
 
     <script src="js/script.js"></script>
