@@ -78,6 +78,11 @@ header.site-header {
     text-decoration: none;
 }
 
+/* utility class for centering text */
+.center-text {
+    text-align: center;
+}
+
 .burger {
     display: none;
     background: none;
@@ -115,6 +120,7 @@ main {
 .pricing li {
     margin-bottom: 0.5rem;
     text-align: center;
+    white-space: nowrap; /* keep price text on a single line on mobile */
 }
 
 .btn {
@@ -233,4 +239,5 @@ textarea {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
 }
