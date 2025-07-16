@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
                     window.location.href = link.href;
-                }, 300);
+                }, 600);
             });
         }
     });
