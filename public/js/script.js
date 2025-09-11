@@ -58,13 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const appointment = document.getElementById('appointment').value;
 
             try {
-                const response = await fetch('/api/book', {
+                const response = await fetch('https://it-express.org/api/book', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ticket, service, description, name, phone: phoneVal, email: emailVal, appointment })
                 });
 
-                if (response.ok) {
+                const result = await response.json();
+                if (result.success) {
                     alert('Booking request sent!');
                     bookingForm.reset();
                 } else {
@@ -87,13 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('message').value;
 
             try {
-                const response = await fetch('/api/contact', {
+                const response = await fetch('https://it-express.org/api/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ticket, name, phone: phoneVal, email: emailVal, message })
                 });
 
-                if (response.ok) {
+                const result = await response.json();
+                if (result.success) {
                     alert('Message sent!');
                     contactForm.reset();
                 } else {

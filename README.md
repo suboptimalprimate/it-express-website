@@ -1,7 +1,8 @@
 # it-express-website
 
-This repo contains the static files for the IT Express website along with a
-small Express server for handling form submissions.
+This repo contains the static files for the IT Express website and a small
+Express server used only for local development. Form submissions are handled by
+a Cloudflare Worker which sends the details to the service email.
 
 ```
 public/
@@ -22,11 +23,12 @@ server.js       # Express server
    ```
    npm install
    ```
-2. Copy `.env.example` to `.env` and fill in your SMTP details.
-3. Start the server:
+2. Start the server:
    ```
    npm start
    ```
 
-The booking and contact forms will send their details to the service email
-configured in your environment variables.
+The booking and contact forms POST to `/api/book` and `/api/contact`, which are
+routed to a Cloudflare Worker. The Worker uses Cloudflare Email Routing to
+deliver messages to `service@it-express.org` without any local SMTP
+configuration.
