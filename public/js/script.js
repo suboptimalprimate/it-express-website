@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const appointment = document.getElementById('appointment').value;
 
             try {
-                const response = await fetch('/api/book', {
+                const response = await fetch('api/book', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ticket, service, description, name, phone: phoneVal, email: emailVal, appointment })
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('message').value;
 
             try {
-                const response = await fetch('/api/contact', {
+                const response = await fetch('api/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ticket, name, phone: phoneVal, email: emailVal, message })
