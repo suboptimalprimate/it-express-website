@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
-        bookingForm.addEventListener('submit', e => {
+        bookingForm.addEventListener('submit', async e => {
             e.preventDefault();
             const ticket = getNextTicketNumber();
             const service = document.getElementById('service').value;
@@ -55,24 +55,52 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('name').value;
             const phoneVal = document.getElementById('phone').value;
             const emailVal = document.getElementById('booking-email').value;
-            const subject = `Ticket ${ticket}: ${service}`;
-            const body = `Name: ${name}\nPhone: ${phoneVal}\nEmail: ${emailVal}\n\nDescription:\n${description}`;
-            window.location.href = `mailto:service@it-express.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            try {
+                const response = await fetch('/api/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ticket, service, description, name, phone: phoneVal, email: emailVal })
+                });
+
+                if (response.ok) {
+                    alert('Booking request sent!');
+                    bookingForm.reset();
+                } else {
+                    alert('Error sending booking request.');
+                }
+            } catch (err) {
+                alert('Error sending booking request.');
+            }
         });
     }
 
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', e => {
+        contactForm.addEventListener('submit', async e => {
             e.preventDefault();
             const ticket = getNextTicketNumber();
             const name = document.getElementById('contact-name').value;
             const phoneVal = document.getElementById('contact-phone').value;
             const emailVal = document.getElementById('contact-email').value;
             const message = document.getElementById('message').value;
-            const subject = `Contact: ${ticket}`;
-            const body = `Name: ${name}\nPhone: ${phoneVal}\nEmail: ${emailVal}\n\nMessage:\n${message}`;
-            window.location.href = `mailto:service@it-express.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ticket, name, phone: phoneVal, email: emailVal, message })
+                });
+
+                if (response.ok) {
+                    alert('Message sent!');
+                    contactForm.reset();
+                } else {
+                    alert('Error sending message.');
+                }
+            } catch (err) {
+                alert('Error sending message.');
+            }
         });
     }
 });
