@@ -38,9 +38,9 @@ async function sendMail(subject, text) {
 }
 
 app.post('/api/book', async (req, res) => {
-    const { ticket, service, description, name, phone, email } = req.body;
+    const { ticket, service, description, name, phone, email, appointment } = req.body;
     const subject = `Ticket ${ticket}: ${service}`;
-    const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nDescription:\n${description}`;
+    const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nPreferred Date & Time: ${appointment}\n\nDescription:\n${description}`;
     try {
         await sendMail(subject, body);
         res.sendStatus(200);

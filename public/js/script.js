@@ -55,12 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('name').value;
             const phoneVal = document.getElementById('phone').value;
             const emailVal = document.getElementById('booking-email').value;
+            const appointment = document.getElementById('appointment').value;
 
             try {
                 const response = await fetch('/api/book', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ticket, service, description, name, phone: phoneVal, email: emailVal })
+                    body: JSON.stringify({ ticket, service, description, name, phone: phoneVal, email: emailVal, appointment })
                 });
 
                 if (response.ok) {
