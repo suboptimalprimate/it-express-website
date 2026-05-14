@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const appointment = document.getElementById('appointment').value;
 
             try {
-                const response = await fetch('https://falling-mountain-d564.jackfhamling.workers.dev/booking', {
+                const response = await fetch('https://api.hamlingtech.com/booking', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ticket, service, description, name, phone: phoneVal, email: emailVal, appointment })
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('message').value;
 
             try {
-                const response = await fetch('https://falling-mountain-d564.jackfhamling.workers.dev/contact', {
+                const response = await fetch('https://api.hamlingtech.com/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ticket, name, phone: phoneVal, email: emailVal, message })
